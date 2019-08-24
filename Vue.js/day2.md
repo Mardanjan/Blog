@@ -34,7 +34,7 @@
 
 2. 在2.x版本中[手动实现筛选的方式](https://cn.vuejs.org/v2/guide/list.html#显示过滤-排序结果)：
 
-+ 筛选框绑定到 VM 实例中的 `searchName` 属性：
++ 筛选框绑定到 VM 实例中的 `searchName` 属性：.
 
 ```
 
