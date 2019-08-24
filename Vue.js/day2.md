@@ -40,7 +40,7 @@
 
 <hr> 输入筛选名称：
 
-<input type="text" v-model="searchName">
+<input type="text" v-model="searchName"> 
 
 ```
 
