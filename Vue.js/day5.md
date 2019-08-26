@@ -107,7 +107,7 @@ webpack src/js/main.js dist/bundle.js
                 template:path.resolve(__dirname, 'src/index.html'),//模板路径
                 filename:'index.html'//自动生成的HTML文件的名称
             })
-        ]
+        ] 
     }
 ```
 3. 修改`package.json`中`script`节点中的dev指令如下：
