@@ -1,6 +1,7 @@
 
 ### 基本查增删改
 
+todo ：  添加唯一约束
 ```
 // Find all users   查询所有
 User.findAll({
