@@ -1,7 +1,7 @@
-# 项目创建
-## 为什么使用webpack？
+
+### 为什么使用webpack？
 + 为了减少二次请求，处理错综复杂的依赖关系
-## weboack安装以及配置
+### weboack安装以及配置
 + 1·安装webpack   全局安装：  webpack npm install -g webpack
 + 2·初始化项目文件目录： npm init 
 + 3·到项目文件下安装：   webpack npm install webpack
@@ -14,7 +14,7 @@
     mode: "none", // no defaults
     ```
     
-## 初步使用webpack大包项目
+### 初步使用webpack大包项目
 + 1·使用jquery后大包项目：
     + 先安装jquery： npm i jquery --save
     + 创建main.js并使用jquery书写代码逻辑 
@@ -27,13 +27,13 @@
       filename : 'bundle.js' 
   }
   ```
-  ## 实现webpack的实时大包构建
+  ### 实现webpack的实时大包构建
   + 1·为什么要这么做？ 因为每次修改代码之后都需要手动运行打包命令比较麻烦，为了避免这个麻烦就是用webpack-dev-server来实现代码实时打包翻译
   + 2·安装： npm i webpack-dev-server --save-dev
   + 3·安装完成后直接用webpack-dev-server来进行打包
   + 4·在scripts节点下新增"dev": "webpack-dev-server"指令，可以进行实时打包  --contentBase src 根目录设置为src 同时修改index页面中script的src属性为<script src="bundle.js"></script>
   
-  ## 使用webpack打包非js文件
+  ### 使用webpack打包非js文件
   + 1·由于webpack只能打包js文件，所以需要各种第三方loader来处理这些文件 css. png jpg igf 还有字体等等文件
   + 2·下载css的第三方loader并配置   下载：npm i style-loader css-loader --save-dev
   + 3·修改配置：
