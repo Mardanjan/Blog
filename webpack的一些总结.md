@@ -48,5 +48,5 @@
         ]
     }   
   ```
-  + 4·下载bootstrap： npm install bootstrap   
-    
+
+     
