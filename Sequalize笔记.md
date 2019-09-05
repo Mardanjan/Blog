@@ -1,7 +1,7 @@
 
 ### 基本查增删改
 
-todo ：  添加唯一约束
+###   数据类型，详细的字段定义 ：https://www.jianshu.com/p/a644e05503b0
 ```
 // Find all users   查询所有
 User.findAll({
