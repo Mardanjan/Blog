@@ -65,6 +65,12 @@ Project.findAll({ offset: 5, limit: 5 })
 ```
 const Op = Sequelize.Op
 
+where: {
+    deletedAt: {
+      [Op.ne]: null
+    }
+  }
+  
 [Op.and]: {a: 5}           // 且 (a = 5)
 [Op.or]: [{a: 5}, {a: 6}]  // (a = 5 或 a = 6)
 [Op.gt]: 6,                // id > 6
