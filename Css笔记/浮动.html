@@ -8,6 +8,122 @@
     <input type="text" name="" id="input">
 </body>
 <script>
+//    console.log(Object.getPrototypeOf({__proto__: null}) === null)
+   /**
+    * new 
+    */
+   function log (x) {
+       console.log(x)
+   }
+   function Person(name,height){
+    this.name=name;
+    this.height=height;
+    }
+    Person.prototype.hobby=function(){
+        return 'watching movies';
+    }
+    var obj = new Person()
+    log(obj.__proto__ === Person.prototype)
+    log(obj.constructor.prototype === obj.__proto__)
+
+    // __proto__属性的作用是就是当访问一个对象的时候，如果对象的属性
+    
+    // class Father {
+    //     constructor(name) {
+    //         this._name = name
+    //     }
+    //     getName () {
+    //         console.log(this._name)
+    //         return this._name
+    //     }
+    //     work () {
+    //         console.log('我是父类的work方法')
+    //     }
+    // }
+
+    // class Son extends Father  {
+    //     constructor(name, age) {
+    //         super(name)
+    //         this._age = age
+    //     }
+
+    //     getAge () {
+    //         console.log(this._age)
+    //         return this._age
+    //     }
+
+    //     work () {
+    //         console.log('我是子类的work方法')
+    //     }
+    // }
+    // let f = new Father('Father')
+    // f.getName()
+    // f.work()
+    // let s = new Son('son', 'age')
+    // s.getName()
+    // s.getAge()
+    // s.work()
+
+
+    // es6 继承的书写方式
+    // class Father {
+    //     // 构造函数
+    //     constructor(name) {
+    //         this._name = name
+    //     }
+    //     // 实例方法，通过实例对象去调用
+    //     getName () {
+    //         console.log(this._name)
+    //         return this._name
+    //     }
+    //     // 静态属性不会被继承，并且通过类名去调用的
+    //     static hitXiaoming() {
+    //         console.log('打小明')
+    //     }
+    //     // 静态属性
+    //     static ID = 'my id'
+    // }
+
+    // class Child extends Father {
+    //     constructor(name, age) {
+    //         // 实例化子类的时候把子类的数据传给父类
+    //         // super关键字：用于访问对象上的函数
+    //         super(name)
+    //         this._age = age
+    //     }
+    // }
+
+    // console.log(Father.ID)
+    // let daming = new Father('大名')
+    // Father.hitXiaoming()
+    // console.log(Father.hitXiaoming)
+    // daming.getName()
+    // console.log(daming.hitXiaoming)
+
+    // let xiaoming = new Child('小明', '1222')
+    // xiaoming.getName()
+    // console.log(xiaoming._age)
+    // console.log(xiaoming.hitXiaoming)
+
+    // es6的新提供的书写方式，这种方式更接近面向对象的书写方式
+    // class Person {
+    //     // 构造方法
+    //     constructor(name) {
+    //         this._name = name
+    //     }
+    //     getName () {
+    //         console.log(this._name)
+    //         return this._name
+    //     }
+
+    //     setName(name) {
+    //         this._name = name
+    //     }
+    // }
+    // let p = new Person('mardan')
+    // p.getName()
+    // p.setName('啦啦')
+    // p.getName()
     // var input = document.querySelector('#input')
     // var timer = true
     // input.oninput = function () {
