@@ -1,51 +1,72 @@
 
-// console.log(1440 / 60)
 
-var str = '330,450,630,690,750,780,990,1050'
-function test (str) {
-    var arr = str.split(',')
-    // console.log(arr)
-    var arr1 = []
-    for (let i =0; i < arr.length; i = i+2) {
-        arr1.push({
-            start: arr[i],
-            end: arr[i+1]
-        })
-    }
-    // console.log(arr1)
-    arr1 = arr1.map(item => {
-        return {
-            start: parseInt(item.start) - 30,
-            end: parseInt(item.end) + 30
-        }
-    })
-    arr1.push({
-        start: 0,
-        end: 0
-    })
-    // console.log(arr1)
-    var arr2 = []
-    for (let i = 0; i<arr1.length-1; i++) {
-        if (arr1[i].end >= arr1[i+1].start && arr1[i].end <= arr1[i+1].end) {
-            arr2.push({
-                start: arr1[i].start,
-                end: arr1[i+1].end
-            })
-            i++
-        } else {
-            arr2.push(arr1[i])
-        }
-    }
-    // console.log(arr2)
-    var arr3 = []
-    arr2.map(item => {
-        arr3.push(item.start)
-        arr3.push(item.end)
-    })
-    console.log(arr3)
+// var arr = [
+//     {
+//         start: 22,
+//         end: 24
+//     },
+//     {
+//         start: 22,
+//         end: 23
+//     }
+// ]
 
-}
-test(str)
+// var time1 = arr[0] , time2 = arr[1]
+
+
+
+
+
+
+
+
+// // console.log(1440 / 60)
+
+// var str = '330,450,630,690,750,780,990,1050'
+// function test (str) {
+//     var arr = str.split(',')
+//     // console.log(arr)
+//     var arr1 = []
+//     for (let i =0; i < arr.length; i = i+2) {
+//         arr1.push({
+//             start: arr[i],
+//             end: arr[i+1]
+//         })
+//     }
+//     // console.log(arr1)
+//     arr1 = arr1.map(item => {
+//         return {
+//             start: parseInt(item.start) - 30,
+//             end: parseInt(item.end) + 30
+//         }
+//     })
+//     arr1.push({
+//         start: 0,
+//         end: 0
+//     })
+//     // console.log(arr1)
+//     var arr2 = []
+//     for (let i = 0; i<arr1.length-1; i++) {
+//         if (arr1[i].end >= arr1[i+1].start && arr1[i].end <= arr1[i+1].end) {
+//             arr2.push({
+//                 start: arr1[i].start,
+//                 end: arr1[i+1].end
+//             })
+//             i++
+//         } else {
+//             arr2.push(arr1[i])
+//         }
+//     }
+//     // console.log(arr2)
+//     var arr3 = []
+//     arr2.map(item => {
+//         arr3.push(item.start)
+//         arr3.push(item.end)
+//     })
+//     console.log(arr3)
+
+// }
+// test(str)
 
 
 // 时间限制：C/C++语言 1000MS；其他语言 3000MS
