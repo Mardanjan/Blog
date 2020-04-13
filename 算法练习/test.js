@@ -1,32 +1,201 @@
-var canPermutePalindrome = function(s) {
-  if (s === s.split('').reverse().join('')) {
-    return true
-  }
-  // 统计字符串的出现次数
-  var count = {}
-  for (let i = 0; i < s.length; i++) {
-      if (s[i] in count) {
-          count[s[i]] ++
-      } else {
-          count[s[i]] = 1
-      }
-  }
 
-  // 删除出现偶次的字符串
-  for (let item in count) {
-      if (count[item] % 2 === 0) {
-          while(count[item]--) {
-              s = s.replace(item, '')
-          }
-      }
-  }
+let strs = ["",""]
 
-  // console.log(s)
-  // 如果字符串长度为1或者0则返回true，否则返回falee
-  return s.length < 2 ? true : false
+var groupAnagrams = function(strs) {
+  // 格式化
+  let arr = strs.map((item, index) => {
+      return {
+          index:index,
+          items: [...item]
+      }
+  })
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].items = arr[i].items.sort((x, y) => x.charCodeAt() - y.charCodeAt())
+    arr[i].str = arr[i].items.join('')
+  }
+  // 筛选
+  let result = []
+  for (let i = 0; i < arr.length; i++) {
+    let tempArr = []
+    for (let j = i+1; j < arr.length-1; j++) {
+      if (arr[i].str === arr[j].str || (arr[i].str.length ===0 && arr[j].length === 0) ) {
+        tempArr.push(arr[j])
+        arr.splice(j, 1)
+        j--
+        console.log('sda')
+      }
+    }
+    tempArr.push(arr[i])
+    arr.splice(i, 1)
+    i--
+    result.push(tempArr)
+  }
+  // 整理
+  result.map(item => {
+    let tempArr = []
+    item.map(itm => {
+      tempArr.push(strs[itm.index])
+    })
+    arr.push(tempArr)
+  })
+  return arr
 };
 
-console.log(canPermutePalindrome("aassa"))
+console.log(groupAnagrams(strs))
+
+
+/**
+ * @param {string} num
+ * @param {string[]} words
+ * @return {string[]}
+ * 题目的意思：
+ * 1.给定一个元素为单词的数组 words
+ * 2.给定一串数字num
+ * 3.从words里找出与num这串数组打出的字符匹配的单词
+ * 4.给定数组串的长度与字母串的长度相等
+ */
+// var getValidT9Words = function(num, words) {
+//   var map = new Map()
+//   map.set('2', ['a', 'b', 'c'])
+//   map.set('3', ['d', 'e', 'f'])
+//   map.set('4', ['g', 'h', 'i'])
+//   map.set('5', ['j', 'k', 'l'])
+//   map.set('6', ['m', 'n', 'o'])
+//   map.set('7', ['p', 'q', 'r', 's'])
+//   map.set('8', ['t', 'u', 'v'])
+//   map.set('9', ['w', 'x', 'y', 'z'])
+//   var result = []
+//   words.map(word => {
+//     if (word.length === num.length) {
+//       var count = 0
+//       for (let i = 0; i < num.length; i++) {
+//         const array = map.get(num[i])
+//         if (array.includes(word[i])) {
+//           count ++
+//         }
+//       }
+//       if (count === num.length) {
+//         result.push(word)
+//       }  
+//     }
+//   })
+//   return result
+// };
+
+// var num = "8733"
+// var words = ["tree", "used"]
+// log(getValidT9Words(num, words))
+
+
+
+// let array1 = [4, 1, 2,0, 1, 1, 1, 2], array2 = [3, 6, 3, 3]
+// // let array1 = [1, 2, 3], array2 = [4, 5, 6]
+// var findSwapValues = function(array1, array2) {
+//   var sumOfArray1 = array1.reduce((s, cur) => s+cur)
+//   var sumOfArray2 = array2.reduce((s, cur) => s+cur)
+//   // 假设： sum1 - sum2 > 0  则： sum1 - x = sum2 + x => sum1 - sum2 = 2x => sum1 - sum2 必须为偶数
+//   // 我们要求x， 这里的x将会 arr1[i] - arr1[j] === x 
+//   if ((sumOfArray1 - sumOfArray2) % 2 !== 0) {
+//       return []
+//   }
+//   if (sumOfArray1 > sumOfArray2) {
+//       const diff = (sumOfArray1 - sumOfArray2) / 2
+//       for (let i = 0; i < array1.length; i++) {
+//           for (let j = 0; j < array2.length; j++) {
+//               if (array1[i] - array2[j] === diff) {
+//                   return [array1[i], array2[j]]
+//               }
+//           }
+//       }
+//   } else {
+//       const diff = (sumOfArray2 - sumOfArray1) / 2
+//       for (let i = 0; i < array2.length; i++) {
+//           for (let j = 0; j < array1.length; j++) {
+//               if (diff === array2[i] - array1[j]) {
+//                   return [array1[j], array2[i]]
+//               }
+//           }
+//       }
+//   }
+// };
+
+
+// log(findSwapValues(array1, array2))
+
+
+// let a = [1,2,3]
+// log(a.map(x => {
+//   return false
+// }))
+
+function log (x) {
+  console.log(x)
+}
+// var log = (x) => {
+//     console.log(x)
+// }
+// let [x, [y, z]] = [1, [2, 3]]
+// console.log(x)
+// console.log(y)
+// console.log(z)
+// var person = {
+//     name: 'name',
+//     age: 20,
+//     gender: 'male'
+//   }
+//   var {name, age, gender} = person
+//   log(name)
+//   log(age)
+//   log(gender)
+
+// function binarySearch (arr, key, low, high) {
+//         if (low > high) {
+//             return -1
+//         }
+//         var baseVal = parseInt((low + high) / 2)
+//         if (arr[baseVal] === key) {
+//             return baseVal
+//         }
+//         if (key > arr[baseVal]) {
+//             return binarySearch(arr, key, baseVal+1, high)
+//         }
+//         if (key < arr[baseVal]) {
+//             return binarySearch(arr, key, low, baseVal-1)
+//         }
+//     }
+// let arr = [1,2,3,4,5]
+
+// console.log(binarySearch(arr, 5, 0, 5))
+
+// var canPermutePalindrome = function(s) {
+//   if (s === s.split('').reverse().join('')) {
+//     return true
+//   }
+//   // 统计字符串的出现次数
+//   var count = {}
+//   for (let i = 0; i < s.length; i++) {
+//       if (s[i] in count) {
+//           count[s[i]] ++
+//       } else {
+//           count[s[i]] = 1
+//       }
+//   }
+
+//   // 删除出现偶次的字符串
+//   for (let item in count) {
+//       if (count[item] % 2 === 0) {
+//           while(count[item]--) {
+//               s = s.replace(item, '')
+//           }
+//       }
+//   }
+
+//   // console.log(s)
+//   // 如果字符串长度为1或者0则返回true，否则返回falee
+//   return s.length < 2 ? true : false
+// };
+
+// console.log(canPermutePalindrome("aassa"))
 
 
 

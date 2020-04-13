@@ -12,19 +12,212 @@
    /**
     * new 
     */
+
    function log (x) {
        console.log(x)
    }
-   function Person(name,height){
-    this.name=name;
-    this.height=height;
-    }
-    Person.prototype.hobby=function(){
-        return 'watching movies';
-    }
-    var obj = new Person()
-    log(obj.__proto__ === Person.prototype)
-    log(obj.constructor.prototype === obj.__proto__)
+
+
+   function GirlFrend() {
+   }
+   
+   
+   let obj = new GirlFrend()
+   GirlFrend.prototype.n = 'zzzz'
+//    GirlFrend.prototype = {
+//        name: 'azizizzz'
+//    }
+   
+   log(obj.constructor === GirlFrend) // true
+   log(obj.constructor.prototype === obj.__proto__)
+   log(Object.toString(GirlFrend.prototype))
+   log(GirlFrend.constructor)
+
+
+   
+   log(Function.__proto__ === Function.prototype)
+   log(Function.__proto__ === Function.constructor.prototype)
+   log(Function.constructor === Function)
+
+   log(Function.prototype.constructor === Function)
+   log(Function.prototype.__proto__ === Object.prototype)
+   log(Object.prototype.__proto__)
+
+   log(Function.constructor === Function)
+
+   log(GirlFrend.constructor === Function)
+   log(Function.constructor === Function)
+   log(Function.__proto__ === Function.constructor.prototype)
+   log(Function.__proto__ === Function.prototype)
+   
+
+   
+//    let tree = {
+//        val: 'a',
+//        left: {
+//         val: 'b',
+//         left: {
+//             val: 'd',
+//             left: null,
+//             right: {
+//                 val: 'e',
+//                 left: null,
+//                 right: null
+//             }
+//         },
+//         right: {
+//             val: 'f',
+//             left: {
+//                 val: 'g',
+//                 left: null,
+//                 right: null
+//             },
+//             right: null
+//         }
+//        },
+//        right: {
+//         val: 'c',
+//         left: null,
+//         right: null
+//        }
+//    }
+//    var isSymmetric = function(root) {
+//     // 中序遍历
+//     let arr = []
+//     LDR(arr, root, 1)
+//     let str1 = arr.join('')
+//     let str2 = arr.reverse().join('')
+//     if (str1 === str2) {
+//         return true
+//     }
+//     return false
+//     // 
+// };
+/**
+ * 
+ */
+// function LDR(arr, tree, k) {
+//     if(tree.left) {
+//         LDR(arr, tree.left, k+1)
+//     }
+//     arr.push({
+//         val: tree.val,
+//         k: k
+//     })
+//     if (tree.right) {
+//         LDR(arr, tree.right, k+1)
+//     }
+// }
+// let str = '4193 with words'
+// log(parseInt('1111', '10'))
+
+// str = "1+1-1"
+// function calculate (str) {
+//     // 去空格
+//     str = str.replace(/\s*/g, '')
+//     // 操作数和操作符分开
+//     let newStr = str.replace(/\//g, 'a/a')
+//     newStr = newStr.replace(/-/g, 'a-a')
+//     newStr = newStr.replace(/\+/g, 'a+a')
+//     newStr = newStr.replace(/\*/g, 'a*a')
+//     newStr = newStr.split('a')
+//     str = newStr
+//     //  存放 数字 和 操作符栈
+//     let num = [], sym = []
+//     let operators = ['-', '+', '*', '/']
+
+    // 优先处理 * 和 /
+    // for (let i = 0; i < str.length; i++) {
+    //     if (operators.includes(str[i])) {
+    //         if (str[i] === '-' || str[i] === '+') {
+    //             sym.push(str[i])
+    //         } else {
+    //             let n = new Number(num.pop())
+    //             if (str[i] === '*') {
+    //                 num.push(Math.floor(n * str[i+1]))
+    //             } else {
+    //                 num.push (Math.floor(n / str[i+1]))
+    //             }
+    //             i ++
+    //         }
+    //     } else {
+    //         num.push(Number(str[i]))
+    //     }
+    // }
+    // log(num)
+    // log(sym)
+    // log(num)
+    // log('unshift')
+    // log(num.shift())
+    // log(num)
+    // 最后处理 + -
+    // while (sym.length > 1) {
+    //     let n1, n2, item = sym.shift()
+    //     if (num.length > 1) {
+    //         n1 = num.shift()
+    //         n2 = num.shift()
+    //         if (item === '+') {
+    //             num.unshift(n1 + n2)
+    //         } else {
+    //             num.unshift(n1 - n2)
+    //         }
+    //     }
+    // }
+    // log(num)
+    // log(sym)
+//     if (num.length === 1) {
+//         if (sym[0] === '-') {
+//             num.push(num[0] * -1)
+//         }
+//     } else if (num.length === 2) {
+//         let n1 = num.shift()
+//         let n2 = num.shift()
+//         if (sym[0] === '+') {
+//             num.push(n1 + n2)
+//         } else {
+//             num.push(n1 - n2)
+//         }
+//     }
+//     return num.pop()
+// }
+// log(calculate(str))
+//    function DLR(tree) {
+//        console.log(tree.val)
+//        if (tree.left) {
+//            DLR(tree.left)
+//        }
+//        if (tree.right) {
+//            DLR(tree.right)
+//        }
+//    }
+//    function LDR(tree, k) {
+//        if (tree.left) {
+//            LDR(tree.left, k+1)
+//        }
+//        console.log(tree.val)
+//        array.push({
+//            val: tree.val,
+//            k
+//        })
+//        if (tree.right) {
+//            LDR(tree.right, k+1)
+//        }
+//    }
+//    log(DLR(tree))
+//    let array = []
+//    log(LDR(tree, 1))
+//    log(array)
+//    function Person(name,height){
+//     this.name=name;
+//     this.height=height;
+//     }
+//     Person.prototype.hobby=function(){
+//         return 'watching movies';
+//     }
+//     var obj = new Person()
+//     log(obj.__proto__ === Person.prototype)
+//     log(obj.constructor.prototype === obj.__proto__)
+//     log(obj.constructor.prototype === obj.__proto__)
 
     // __proto__属性的作用是就是当访问一个对象的时候，如果对象的属性
     
