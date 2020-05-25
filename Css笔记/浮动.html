@@ -16,39 +16,54 @@
    function log (x) {
        console.log(x)
    }
+   var firstUniqChar = function(s) {
+    let map = new Map()
+    for (let i = 0; i < s.length; i++) {
+        if (!map.has(s[i])) {
+            map.set(s[i], 1)
+        } else {
+            map.set(s[i], map.get(s[i]) + 1)
+        }
+    }
+    for (let key of map) {
+      if (key[1] === 1){return key[0]}
+    }
+};
+let str = "leetcode"
+log(firstUniqChar(str))
 
 
-   function GirlFrend() {
-   }
+//    function GirlFrend() {
+//    }
    
    
-   let obj = new GirlFrend()
-   GirlFrend.prototype.n = 'zzzz'
+//    let obj = new GirlFrend()
+//    GirlFrend.prototype.n = 'zzzz'
 //    GirlFrend.prototype = {
 //        name: 'azizizzz'
 //    }
    
-   log(obj.constructor === GirlFrend) // true
-   log(obj.constructor.prototype === obj.__proto__)
-   log(Object.toString(GirlFrend.prototype))
-   log(GirlFrend.constructor)
+//    log(obj.constructor === GirlFrend) // true
+//    log(obj.constructor.prototype === obj.__proto__)
+//    log(Object.toString(GirlFrend.prototype))
+//    log(GirlFrend.constructor)
 
 
    
-   log(Function.__proto__ === Function.prototype)
-   log(Function.__proto__ === Function.constructor.prototype)
-   log(Function.constructor === Function)
+//    log(Function.__proto__ === Function.prototype)
+//    log(Function.__proto__ === Function.constructor.prototype)
+//    log(Function.constructor === Function)
 
-   log(Function.prototype.constructor === Function)
-   log(Function.prototype.__proto__ === Object.prototype)
-   log(Object.prototype.__proto__)
+//    log(Function.prototype.constructor === Function)
+//    log(Function.prototype.__proto__ === Object.prototype)
+//    log(Object.prototype.__proto__)
 
-   log(Function.constructor === Function)
+//    log(Function.constructor === Function)
 
-   log(GirlFrend.constructor === Function)
-   log(Function.constructor === Function)
-   log(Function.__proto__ === Function.constructor.prototype)
-   log(Function.__proto__ === Function.prototype)
+//    log(GirlFrend.constructor === Function)
+//    log(Function.constructor === Function)
+//    log(Function.__proto__ === Function.constructor.prototype)
+//    log(Function.__proto__ === Function.prototype)
    
 
    

@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>message</title>
+</head>
+<body>
+  <div id="message"></div>
+  <button id="btn">start</button>
+</body>
+<script>
+  // 初始化工作
+  function messageAnimation () {
+    let div = document.getElementById('message')
+    console.log(div.style)
+    div.style.width = '400px'
+    div.style.height = '60px'
+    div.style.backgroundColor = 'black'
+    div.style.position = 'fixed'
+    div.style.bottom = '30px'
+    div.style.right = '50%'
+    div.style.transform = 'translateX(50%)'
+    div.style.display = 'none'
+    // 绑定事件
+    document.getElementById('btn').onclick = showMessageAnimation
+  }
+
+  function showMessageAnimation () {
+    console.log('start')
+    let div = document.getElementById('message')
+    div.style.display = 'block'
+    
+    moveDIVy(0)
+
+    function moveDIVy (x) {
+      let div = document.getElementById('message')
+      if (div.style.bottom != '90%') {
+        setTimeout(() => {
+          div.style.bottom = x + '%'
+          moveDIVy(x + 5)
+        }, 50)
+      } else {
+        let text = document.createTextNode('i am a message !')
+        div.appendChild(text)
+        div.style.color = 'white  '
+        setTimeout(() => {
+          moveDIVx(50)
+        }, 1000)
+      }
+    }
+
+    function moveDIVx (x) {
+      let div = document.getElementById('message')
+      if (div.style.left != '100%') {
+        setTimeout(() => {
+          div.style.left = x + '%'
+          moveDIVx(x + 5)
+        }, 50)
+      }
+    }
+  }
+  
+  window.onload = messageAnimation
+</script>
+</html>

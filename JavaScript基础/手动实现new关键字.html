@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手动实现new关键字</title>
+</head>
+<body>
+  <script>
+    /**
+     * 实心new之前我们必须知道new到底做了些什么
+     * 1.创建了一个空的对象
+     * 2.构造函数的this指向了该对象
+     * 3.执行构造函数
+     * 4.返回该对象
+    */
+
+    /**
+     * JavaScript中任何一个合法的函数都可以作为对象的构造函数，即可包括内置函数，也包括自定义函数
+     * 一旦函数作为构造函数执行，它内部的this属性将引用函数本身
+     * 
+     */
+
+  function create() {
+    let obj = new Object()
+    let constructor = [].shift.call(arguments)
+    console.log('对象：', constructor)
+    obj.__proto__ = constructor.prototype
+    constructor.call(obj, ...arguments) // 运行函数，函数的this指向obj对象，参数是传来的值
+    return obj
+  }
+
+    function Person (name) {
+      this.name = name
+      return name
+    }
+
+    let p = new Person('mardanjan')
+    let p1 = create(Person, 'mardan')
+    console.log(p)
+    console.log(p1)
+    console.log(p instanceof Person)
+    console.log(p1 instanceof Person)
+
+  </script>
+</body>
+</html>
