@@ -1,0 +1,10 @@
+section, header, article, nav {
+  display: block;
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+header nav li {
+  display: inline-block;
+}

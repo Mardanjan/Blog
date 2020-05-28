@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript获取style</title>
+  <style>
+    div{
+      color: red;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    This is JavaScript
+  </div>
+  <script>
+    let div = document.getElementsByTagName('div')[0]
+    console.log(div.style.color)
+    console.log(window.getComputedStyle(div)['margin'])
+  </script>
+</body>
+</html>
